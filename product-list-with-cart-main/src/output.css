@@ -568,7 +568,23 @@ video {
   }
   & .dessert {
     --tw-text-opacity: 1;
-    color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+    color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+  }
+  & .name {
+    font-size: 16px;
+  }
+  & .name {
+    font-weight: 600;
+  }
+  & .price {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  & .price {
+    font-weight: 600;
+  }
+  & .price {
+    color: var(--real-red);
   }
 }
 
@@ -628,14 +644,6 @@ video {
 .text-blue-800 {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity, 1));
-}
-
-.text-realRed {
-  color: var(--real-red);
-}
-
-.text-realGreen {
-  color: var(--real-green);
 }
 
 :root{

@@ -21,7 +21,13 @@
     .producto{
         @apply border rounded-md bg-slate-300; 
         & .dessert{
-            @apply text-red-600 text-[13px] text-gray-400;
+            @apply text-red-600 text-[13px] text-gray-500;
+        }
+        & .name{
+            @apply text-[16px] font-semibold
+        }
+        & .price{
+            @apply text-realRed text-sm font-semibold
         }
     }
 }
