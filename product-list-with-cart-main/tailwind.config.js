@@ -2,7 +2,16 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        redhat: ['RedHat', 'sans-serif']
+      },
+
+      colors: {
+        realRed: 'var(--real-red)',
+        realGreen: 'var(--real-green)'
+      }
+    },
   },
   plugins: [],
 }
