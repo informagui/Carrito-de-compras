@@ -32,7 +32,7 @@
         }
     }
     .add-cart{
-        @apply flex bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute right-11;
+        @apply flex bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute right-11 hover:text-realRed;
         & img{
             @apply w-5 m-1;
         }
