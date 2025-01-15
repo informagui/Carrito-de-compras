@@ -555,10 +555,7 @@ video {
 }
 
 .producto {
-  border-radius: 0.375rem;
-  border-width: 1px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+  position: relative;
   & .dessert {
     font-size: 13px;
   }
@@ -584,15 +581,49 @@ video {
   }
 }
 
-button {
+.add-cart {
+  position: absolute;
+  right: 2.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1rem;
   display: flex;
-  border-radius: 0.75rem;
-  border-width: 2px;
+  align-items: center;
+  border-radius: 1.5rem;
+  border-width: 1px;
   border-color: var(--real-red);
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  font-weight: 600;
+  & img {
+    margin: 0.25rem;
+  }
+  & img {
+    width: 1.25rem;
+  }
+}
+
+.big-img {
+  width: 100%;
+  max-width: 14rem;
+}
+
+.description {
+  margin-top: 1.5rem;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
 }
 
 .col-span-3 {
@@ -623,8 +654,9 @@ button {
   gap: 1rem;
 }
 
-.bg-rose50 {
-  background-color: var(--Rose-50);
+.bg-amber-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 251 235 / var(--tw-bg-opacity, 1));
 }
 
 .bg-white {

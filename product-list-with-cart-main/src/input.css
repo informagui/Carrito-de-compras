@@ -19,7 +19,7 @@
 
 @layer components{
     .producto{
-        @apply border rounded-md bg-slate-100; 
+        @apply relative; 
 
         & .dessert{
             @apply  text-[13px] text-gray-500;
@@ -31,7 +31,16 @@
             @apply text-realRed text-sm font-semibold
         }
     }
-    button{
-        @apply flex bg-white border-2 border-realRed rounded-xl text-sm;
+    .add-cart{
+        @apply flex bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute right-11;
+        & img{
+            @apply w-5 m-1;
+        }
+    }
+    .big-img{
+        @apply w-full max-w-56;
+    }
+    .description {
+        @apply  mt-6;
     }
 }
