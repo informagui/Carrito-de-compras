@@ -18,9 +18,6 @@
 }
 
 @layer components{
-    .big-img{
-        @apply w-52;
-    }
     .producto{
         @apply border rounded-md bg-slate-100; 
 
