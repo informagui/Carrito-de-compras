@@ -22,23 +22,23 @@
         @apply max-w-56 mx-auto sm:max-w-96 relative; 
 
         & .dessert{
-            @apply  text-[13px] text-gray-500;
+            @apply  text-[13px] lg:text-[15px] text-gray-500;
         }
         & .name{
-            @apply text-[16px] font-semibold
+            @apply text-[16px] lg:text-lg font-semibold
         }
         & .price{
-            @apply text-realRed text-sm font-semibold
+            @apply text-realRed text-sm font-semibold lg:text-base
         }
     }
     .add-cart{
-        @apply flex  bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute left-[25%] md:left-[11%] hover:text-realRed ;
+        @apply flex  bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute left-[25%] md:left-[11%] hover:text-realRed lg:text-base;
         & img{
             @apply w-5 m-1;
         }
     }
     .big-img{
-        @apply bg-cover rounded-md mx-auto h-36 sm:h-52 sm:w-72 md:h-32 md:w-40 lg:h-48 lg:w-52;
+        @apply bg-cover rounded-md mx-auto h-36 sm:h-52 sm:w-72 md:h-36 md:w-44 lg:h-48 lg:w-52;
     }
     .description {
         @apply  mt-6 mx-auto;
