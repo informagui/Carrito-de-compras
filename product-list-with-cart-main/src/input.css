@@ -19,7 +19,7 @@
 
 @layer components{
     .producto{
-        @apply max-w-56 mx-auto ; 
+        @apply max-w-56 mx-auto sm:max-w-96 relative; 
 
         & .dessert{
             @apply  text-[13px] text-gray-500;
@@ -32,13 +32,13 @@
         }
     }
     .add-cart{
-        @apply flex  bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute lg:right-11  hover:text-realRed left-1/2 transform -translate-x-1/2;
+        @apply flex  bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute left-[25%] md:left-[11%] hover:text-realRed ;
         & img{
             @apply w-5 m-1;
         }
     }
     .big-img{
-        @apply w-full max-w-56;
+        @apply bg-cover rounded-md mx-auto h-36 sm:h-52 sm:w-72 md:h-32 md:w-40 lg:h-48 lg:w-52;
     }
     .description {
         @apply  mt-6 mx-auto;
