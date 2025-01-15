@@ -554,8 +554,13 @@ video {
   display: none;
 }
 
-.producto {
-  position: relative;
+@media (min-width: 640px) {
+  .producto {
+    position: relative;
+  }
+}
+
+.producto{
   & .dessert {
     font-size: 13px;
   }
@@ -583,11 +588,13 @@ video {
 
 .add-cart {
   position: absolute;
-  right: 2.75rem;
+  left: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-top: -1rem;
   display: flex;
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   align-items: center;
   border-radius: 1.5rem;
   border-width: 1px;
@@ -605,6 +612,12 @@ video {
 
 .add-cart:hover {
   color: var(--real-red);
+}
+
+@media (min-width: 1024px) {
+  .add-cart {
+    right: 2.75rem;
+  }
 }
 
 .add-cart{
@@ -629,41 +642,17 @@ video {
   position: absolute;
 }
 
-.relative {
-  position: relative;
-}
-
-.col-span-3 {
-  grid-column: span 3 / span 3;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
+.mr-0 {
+  margin-right: 0px;
+}
+
 .inline-block {
   display: inline-block;
-}
-
-.flex {
-  display: flex;
-}
-
-.grid {
-  display: grid;
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.items-start {
-  align-items: flex-start;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .gap-4 {
@@ -743,4 +732,57 @@ video {
   font-family: 'RedHat';
 
   src: url(./assets/fonts/RedHatText-VariableFont_wght.ttf);
+}
+
+@media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:grid {
+    display: grid;
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+
+  .sm\:bg-purple-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(216 180 254 / var(--tw-bg-opacity, 1));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:bg-lime-300 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(190 242 100 / var(--tw-bg-opacity, 1));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:bg-indigo-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
+  }
 }
