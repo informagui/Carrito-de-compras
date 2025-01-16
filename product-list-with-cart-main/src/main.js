@@ -4,7 +4,7 @@ let productos = [];
 let cantProductos = 0;
 let cantProductosEl= document.getElementById("cant-productos");
 
-fetch('../data.json')
+fetch('./data.json')
   .then(response => response.json())
   .then(data => {
     productos = data;
