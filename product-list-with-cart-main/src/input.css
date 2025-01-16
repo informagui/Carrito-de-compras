@@ -20,17 +20,17 @@
 @layer components{
     .producto{
         @apply max-w-56 mx-auto sm:max-w-96 relative; 
-
-        & .dessert{
+    }
+    .dessert{
             @apply  text-[13px] lg:text-[15px] text-gray-500;
         }
-        & .name{
+    .name{
             @apply text-[16px] lg:text-lg font-semibold
         }
-        & .price{
-            @apply text-realRed text-sm font-semibold lg:text-base
+    .price{
+            @apply text-realRed text-sm font-semibold lg:text-base mr-3
         }
-    }
+   
     .add-cart{
         @apply flex  bg-white border border-realRed rounded-3xl text-sm mx-auto px-3 py-1 items-center font-semibold -mt-4 absolute left-[25%] md:left-[11%] lg:left-[20%] hover:text-realRed lg:text-base;
         & img{
@@ -42,5 +42,12 @@
     }
     .description {
         @apply  mt-6 mx-auto;
+    }
+
+    .product-in-cart{
+        @apply text-sm flex justify-between border-b-[1px] pb-2 border-b-gray-200;
+    }
+    .borrar-prod{
+        @apply border border-gray-400 rounded-full text-center text-gray-400 my-auto size-6 text-[20px] cursor-pointer;
     }
 }
