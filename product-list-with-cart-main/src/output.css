@@ -644,6 +644,7 @@ video {
 
 @media (min-width: 1024px) {
   .add-cart {
+    left: 20%;
     font-size: 1rem;
     line-height: 1.5rem;
   }
@@ -682,8 +683,8 @@ video {
 
 @media (min-width: 1024px) {
   .big-img {
-    height: 12rem;
-    width: 13rem;
+    height: 13rem;
+    width: 14rem;
   }
 }
 
@@ -693,17 +694,43 @@ video {
   margin-top: 1.5rem;
 }
 
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .gap-3 {
   gap: 0.75rem;
 }
 
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
 .bg-amber-50 {
@@ -711,9 +738,8 @@ video {
   background-color: rgb(255 251 235 / var(--tw-bg-opacity, 1));
 }
 
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
+.bg-realRed {
+  background-color: var(--real-red);
 }
 
 .bg-white {
@@ -801,6 +827,11 @@ video {
   color: var(--real-red);
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
 :root{
   --real-red: hsl(14, 86%, 42%);
   --real-green: hsl(159, 69%, 38%);
@@ -837,11 +868,6 @@ video {
 
   .sm\:justify-between {
     justify-content: space-between;
-  }
-
-  .sm\:bg-purple-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(216 180 254 / var(--tw-bg-opacity, 1));
   }
 
   .sm\:bg-baklava-tablet {
@@ -894,11 +920,6 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .md\:bg-lime-300 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(190 242 100 / var(--tw-bg-opacity, 1));
-  }
-
   .md\:bg-baklava-desktop {
     background-image: url('./assets/images/image-baklava-desktop.jpg');
   }
@@ -937,10 +958,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:m-2 {
-    margin: 0.5rem;
-  }
-
   .lg\:mb-2 {
     margin-bottom: 0.5rem;
   }
@@ -953,19 +970,14 @@ video {
     gap: 1rem;
   }
 
-  .lg\:bg-indigo-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));
-  }
-
-  .lg\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .lg\:text-base {

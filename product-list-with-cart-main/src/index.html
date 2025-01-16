@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon.png">
   <link rel="stylesheet" href="./output.css">
   
   <title> Product list with cart</title>
@@ -15,11 +15,11 @@
     
     <section id="products" class="mx-auto sm:grid md:grid-cols-3 sm:grid-cols-2 gap-3 lg:gap-4 ">
 
-      <h1 class="font-bold text-2xl md:col-span-3 sm:col-span-2"> Desserts</h1>
+      <h1 class="font-bold text-2xl md:col-span-3 sm:col-span-2 lg:text-4xl"> Desserts</h1>
 
-      <div class="producto">
+      <div class="producto" id="1">
         <div class="big-img bg-waffle-mobile sm:bg-waffle-tablet md:bg-waffle-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(1)" class="add-cart"> 
           <img class="img" src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -30,9 +30,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="2">
         <div class="big-img bg-cremebrulee-mobile sm:bg-cremebrulee-tablet md:bg-cremebrulee-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(2)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -43,9 +43,9 @@
         </div>
       </div>
   
-      <div class="producto">
+      <div class="producto" id="3">
         <div class="big-img bg-macaron-mobile sm:bg-macaron-tablet md:bg-macaron-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(3)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -56,9 +56,9 @@
         </div>
       </div>
  
-      <div class="producto">
+      <div class="producto" id="4">
         <div class="big-img bg-tiramisu-mobile sm:bg-tiramisu-tablet md:bg-tiramisu-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(4)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -69,9 +69,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="5">
         <div class="big-img bg-baklava-mobile sm:bg-baklava-tablet md:bg-baklava-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(5)"class="add-cart"> 
           <img src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -82,9 +82,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="6">
         <div class="big-img bg-lemon-pie-mobile sm:bg-lemon-pie-tablet md:bg-lemon-pie-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(6)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -95,9 +95,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="7">
         <div class="big-img bg-red-velvet-mobile sm:bg-red-velvet-tablet md:bg-red-velvet-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(7)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -108,9 +108,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="8">
         <div class="big-img bg-brownie-mobile sm:bg-brownie-tablet md:bg-brownie-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(8)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -121,9 +121,9 @@
         </div>
       </div>
 
-      <div class="producto">
+      <div class="producto" id="9">
         <div class="big-img bg-panna-cotta-mobile sm:bg-panna-cotta-tablet md:bg-panna-cotta-desktop"></div>
-        <button class="add-cart"> 
+        <button onclick="addProduct(9)"class="add-cart"> 
           <img class=" " src="./assets/images/icon-add-to-cart.svg" alt="">
           Add to cart
         </button>
@@ -137,7 +137,7 @@
 
     <!-- Your cart -->
     <section id="cart" class=" bg-white rounded-md p-4 mx-auto">
-      <h3 class="text-realRed font-bold text-lg lg:text-2xl lg:mb-2"> Your Cart ( <span id="cant-prodctos">0</span> )</h3>
+      <h3 class="text-realRed font-bold text-lg lg:text-2xl lg:mb-2"> Your Cart ( <span id="cant-productos">0</span> )</h3>
       <img src="./assets/images/illustration-empty-cart.svg" alt="" class="mx-auto">
       <p class="text-sm text-center lg:mt-2 lg:text-base">Your added items will appear here</p>
     </section>
@@ -148,6 +148,8 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="text-blue-800">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/informagui" class="text-blue-800">Magali Kruel</a>.
   </div>
+
+  <script src="./main.js"></script>
 
 </body>
 </html>
