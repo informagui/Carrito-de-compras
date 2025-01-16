@@ -704,6 +704,7 @@ video {
 .borrar-prod {
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: 1.25rem;
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
@@ -993,8 +994,8 @@ video {
     margin-top: 0.5rem;
   }
 
-  .lg\:max-w-\[1200px\] {
-    max-width: 1200px;
+  .lg\:max-w-\[1300px\] {
+    max-width: 1300px;
   }
 
   .lg\:gap-4 {

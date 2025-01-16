@@ -48,6 +48,6 @@
         @apply text-sm flex justify-between border-b-[1px] pb-2 border-b-gray-200;
     }
     .borrar-prod{
-        @apply border border-gray-400 rounded-full text-center text-gray-400 my-auto size-6 text-[20px] cursor-pointer;
+        @apply border border-gray-400 rounded-full text-center text-gray-400 my-auto size-6 text-[20px] cursor-pointer ml-5;
     }
 }
