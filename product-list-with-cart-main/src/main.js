@@ -3,6 +3,7 @@ const cart = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let productos = [];
 let cantProductos = 0;
 let cantProductosEl= document.getElementById("cant-productos");
+let total = 0.00;
 
 fetch('./data.json')
   .then(response => response.json())
@@ -17,7 +18,7 @@ function addProduct(id){
     //Cambios generales
     cart[id-1] ++;
     cantProductos ++;
-
+    total += productos[(id -1)].price.toFixed(2);
     //Obteniendo html
     cantProductosEl.innerText = cantProductos;
     const producto = document.getElementById(id);
@@ -34,12 +35,13 @@ function addProduct(id){
 
     //Cambiando el carrito
     addToCart(id);
+    addToTotal(id);
 }
 
 function addToCart(id){
     //Getting the needed html
     const postre = productos[(id -1)];
-    const cartContainer = document.querySelector('#cart');
+    const cartContainer = document.getElementById('cart');
 
     //Removing empty cart style
     if (isCartEmpty === true){
@@ -55,11 +57,11 @@ function addToCart(id){
     
     productDiv.innerHTML = `
         <div>
-        <p class="name">${postre.name}</p>
-        <p class="dessert">
-            <span class="price quantity-of-${id}">x1</span> @$${postre.price.toFixed(2)} 
-            <span class="font-semibold ml-2 price-of-${id}"> $${postre.price.toFixed(2)}</span>
-        </p>
+            <p class="name">${postre.name}</p>
+            <p class="dessert">
+                <span class="price quantity-of-${id}">x1</span> @$${postre.price.toFixed(2)} 
+                <span class="font-semibold ml-2 price-of-${id}"> $${postre.price.toFixed(2)}</span>
+            </p>
         </div>
         <span class="borrar-prod" onclick="removeFromCart(${id})">x</span>
     `;
@@ -69,34 +71,35 @@ function addToCart(id){
 }
 
 function decrement(id){
-    cart[id -1] --;
     const producto = document.getElementById(id);
     const cantidadEl = producto.querySelector('.quantity');
-    const cantidad = cantidadEl.innerText 
+    const cantidad = cart[id-1];
     if (cantidad == 1){
         removeFromCart(id)
     } else {
         cantidadEl.innerText = cantidad - 1;
-    }
+        cart[id -1] --;
+        cantProductos --;
+        cantProductosEl.innerText = cantProductos;
+        total -= productos[(id -1)].price.toFixed(2);
 
-    cantProductos --;
-    cantProductosEl.innerText = cantProductos;
+        //Decrementing Cart
+        const cartContainer = document.querySelector('#cart');
+        const cantidadEnCarritoEl = cartContainer.querySelector('.quantity-of-' + id);
+        cantidadEnCarritoEl.innerText = "x" + cart[id-1];
+        const precioSubtotalEl = cartContainer.querySelector('.price-of-' + id);
+        precioSubtotalEl.innerText = "$" + (productos[(id - 1)].price * cart[id-1]).toFixed(2);
+    }
 
     if (cantProductos === 0){
         carritoVacio();
     }
-
-    //Decrementing Cart
-    const cartContainer = document.querySelector('#cart');
-    const cantidadEnCarritoEl = cartContainer.querySelector('.quantity-of-' + id);
-    cantidadEnCarritoEl.innerText = "x" + cart[id-1];
-    const precioSubtotalEl = cartContainer.querySelector('.price-of-' + id);
-    precioSubtotalEl.innerText = "$" + (productos[(id - 1)].price * cart[id-1]).toFixed(2);
 }
 
 function increment(id){
     cart[id-1] ++;
     cantProductos ++;
+    total += productos[(id -1)].price.toFixed(2);
 
     //Changing html
     const producto = document.getElementById(id);
@@ -115,9 +118,11 @@ function increment(id){
 }
 
 function removeFromCart(id){
+    total -= (productos[(id -1)].price * cart[id-1]).toFixed(2);
     cantProductos -= cart[id-1];
     cantProductosEl.innerText = cantProductos;
     cart[id-1] = 0;
+
     if (cantProductos === 0){
         carritoVacio();
     }
@@ -141,7 +146,7 @@ function resetButton(productId) {
  
 function carritoVacio(){
     isCartEmpty = true;
-    const cartContainer = document.querySelector('#cart');
+    const cartContainer = document.querySelector('#carrito');
     cartContainer.innerHTML = '';
     
     // Agrega el mensaje de carrito vacío
@@ -153,4 +158,31 @@ function carritoVacio(){
         </div>
     `;      
     cantProductosEl = document.getElementById("cant-productos");
+}
+
+function addToTotal(id){
+    //Add the total to html
+    const cartContainer = document.querySelector('#carrito');
+    const totalAndConfirmDiv = document.createElement('div');
+
+    totalAndConfirmDiv.innerHTML = `
+        <div class="flex justify-between m-1" id="total">
+            <p>Order total</p>
+            <h1 class="text-xl font-bold" id="total-price">$0.00</h1>
+        </div>
+        <div class="bg-rose50 rounded-lg m-4 items-center flex h-12 p-4">
+            <img src="./assets/images/icon-carbon-neutral.svg" alt="">
+            <p class="tetx-sm ml-2">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
+        </div>
+        <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center" onclick="confirmOrder()">Confirm Order</button>
+    `;
+
+    cartContainer.appendChild(totalAndConfirmDiv);
+
+    const totalPriceEl = document.getElementById("total-price");
+    totalPriceEl.innerText = "$" + total;
+}
+
+function confirmOrder(){
+    alert("Thank you for your purchase!")
 }
