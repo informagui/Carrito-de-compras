@@ -732,6 +732,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .h-6 {
   height: 1.5rem;
 }
