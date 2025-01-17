@@ -146,7 +146,7 @@ function resetButton(productId) {
  
 function carritoVacio(){
     isCartEmpty = true;
-    const cartContainer = document.querySelector('#carrito');
+    const cartContainer = document.querySelector('#cart');
     cartContainer.innerHTML = '';
     
     // Agrega el mensaje de carrito vacío
@@ -160,7 +160,7 @@ function carritoVacio(){
     cantProductosEl = document.getElementById("cant-productos");
 }
 
-function addToTotal(id){
+/* function addToTotal(id){
     //Add the total to html
     const cartContainer = document.querySelector('#carrito');
     const totalAndConfirmDiv = document.createElement('div');
@@ -181,7 +181,7 @@ function addToTotal(id){
 
     const totalPriceEl = document.getElementById("total-price");
     totalPriceEl.innerText = "$" + total;
-}
+} */
 
 function confirmOrder(){
     alert("Thank you for your purchase!")
