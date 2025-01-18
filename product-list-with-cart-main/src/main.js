@@ -18,7 +18,7 @@ function addProduct(id){
     //Cambios generales
     cart[id-1] ++;
     cantProductos ++;
-    total += productos[(id -1)].price.toFixed(2);
+    total += productos[(id -1)].price;
     //Obteniendo html
     cantProductosEl.innerText = cantProductos;
     const producto = document.getElementById(id);
@@ -34,8 +34,8 @@ function addProduct(id){
     `;
 
     //Cambiando el carrito
+    addToTotal();
     addToCart(id);
-    addToTotal(id);
 }
 
 function addToCart(id){
@@ -81,7 +81,7 @@ function decrement(id){
         cart[id -1] --;
         cantProductos --;
         cantProductosEl.innerText = cantProductos;
-        total -= productos[(id -1)].price.toFixed(2);
+        total -= productos[(id -1)].price;
 
         //Decrementing Cart
         const cartContainer = document.querySelector('#cart');
@@ -94,12 +94,14 @@ function decrement(id){
     if (cantProductos === 0){
         carritoVacio();
     }
+
+    addToTotal();
 }
 
 function increment(id){
     cart[id-1] ++;
     cantProductos ++;
-    total += productos[(id -1)].price.toFixed(2);
+    total += productos[(id -1)].price;
 
     //Changing html
     const producto = document.getElementById(id);
@@ -115,16 +117,20 @@ function increment(id){
     cantidadEnCarritoEl.innerText = "x" + cart[id-1];
     const precioSubtotalEl = cartContainer.querySelector('.price-of-' + id);
     precioSubtotalEl.innerText = "$" + (productos[(id - 1)].price  * cart[id-1]).toFixed(2);
+
+    addToTotal();
 }
 
 function removeFromCart(id){
-    total -= (productos[(id -1)].price * cart[id-1]).toFixed(2);
+    total -= (productos[(id -1)].price * cart[id-1]);
     cantProductos -= cart[id-1];
     cantProductosEl.innerText = cantProductos;
     cart[id-1] = 0;
 
     if (cantProductos === 0){
         carritoVacio();
+    }else{
+        addToTotal();
     }
     resetButton(id);
     
@@ -132,6 +138,7 @@ function removeFromCart(id){
     const cartContainer = document.querySelector('#cart');
     const productToRemove= cartContainer.querySelector(`.product-in-cart[data-id="${id}"]`);
     cartContainer.removeChild(productToRemove);
+
 }
 
 function resetButton(productId) {
@@ -151,7 +158,6 @@ function carritoVacio(){
     
     // Agrega el mensaje de carrito vacío
     cartContainer.innerHTML = `
-        <h3 class="text-realRed font-bold text-lg lg:text-2xl mb-3"> Your Cart ( <span id="cant-productos">0</span> )</h3>
         <div id="empty-cart">
         <img src="./assets/images/illustration-empty-cart.svg" alt="" class="mx-auto">
         <p class="text-sm text-center lg:mt-2 lg:text-base">Your added items will appear here</p>
@@ -160,29 +166,35 @@ function carritoVacio(){
     cantProductosEl = document.getElementById("cant-productos");
 }
 
-/* function addToTotal(id){
+ function addToTotal(){
     //Add the total to html
-    const cartContainer = document.querySelector('#carrito');
-    const totalAndConfirmDiv = document.createElement('div');
+    let totalAndConfirmDiv = document.getElementById('total-and-confirm');
+    if (!totalAndConfirmDiv){
+        const carritoContainer = document.querySelector('#cart');
+        const totalAndConfirmDiv = document.createElement('div');
+        totalAndConfirmDiv.id = 'total-and-confirm';
 
-    totalAndConfirmDiv.innerHTML = `
-        <div class="flex justify-between m-1" id="total">
-            <p>Order total</p>
-            <h1 class="text-xl font-bold" id="total-price">$0.00</h1>
-        </div>
-        <div class="bg-rose50 rounded-lg m-4 items-center flex h-12 p-4">
-            <img src="./assets/images/icon-carbon-neutral.svg" alt="">
-            <p class="tetx-sm ml-2">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
-        </div>
-        <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center" onclick="confirmOrder()">Confirm Order</button>
-    `;
+        totalAndConfirmDiv.innerHTML = `
+            <div class="flex justify-between m-1" id="total">
+                <p>Order total</p>
+                <h1 class="text-xl font-bold" id="total-price">$0.00</h1>
+            </div>
+            <div class="bg-rose50 rounded-lg m-4 items-center flex h-12 p-4">
+                <img src="./assets/images/icon-carbon-neutral.svg" alt="">
+                <p class="tetx-sm ml-2">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
+            </div>
+            <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center" onclick="confirmOrder()">Confirm Order</button>
+        `;
 
-    cartContainer.appendChild(totalAndConfirmDiv);
+        
+        carritoContainer.appendChild(totalAndConfirmDiv);
+    }
 
     const totalPriceEl = document.getElementById("total-price");
-    totalPriceEl.innerText = "$" + total;
-} */
+    totalPriceEl.innerText = "$" + total.toFixed(2);
+} 
 
 function confirmOrder(){
     alert("Thank you for your purchase!")
+    location.reload();
 }
