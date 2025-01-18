@@ -146,8 +146,10 @@ function resetButton(productId) {
     const button = producto.querySelector('button');
     button.className = 'add-cart';
     button.innerHTML = `
+     <div onclick="addProduct(${productId})" class="flex">
         <img src="./assets/images/icon-add-to-cart.svg" alt="">
         Add to cart
+    </div>
     `;
 }
  
