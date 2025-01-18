@@ -179,9 +179,9 @@ function carritoVacio(){
                 <p>Order total</p>
                 <h1 class="text-xl font-bold" id="total-price">$0.00</h1>
             </div>
-            <div class="bg-rose50 rounded-lg m-4 items-center flex h-12 p-4">
+            <div class="bg-rose50 rounded-lg m-4 text-center flex h-14 p-4">
                 <img src="./assets/images/icon-carbon-neutral.svg" alt="">
-                <p class="tetx-sm ml-2">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
+                <p class="tetx-sm text-center ">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
             </div>
             <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center" onclick="confirmOrder()">Confirm Order</button>
         `;
@@ -195,6 +195,11 @@ function carritoVacio(){
 } 
 
 function confirmOrder(){
-    alert("Thank you for your purchase!")
+    const modal = document.getElementById('modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeModal(){
     location.reload();
 }
