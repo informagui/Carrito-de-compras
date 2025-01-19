@@ -202,6 +202,11 @@ function confirmOrder(){
     modal.classList.add('flex');
 }
 
+function irAlCarrito() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+
 function closeModal(){
     location.reload();
 }

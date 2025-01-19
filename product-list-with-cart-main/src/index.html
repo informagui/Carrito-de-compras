@@ -15,7 +15,13 @@
     
     <section id="products" class="mx-auto sm:grid md:grid-cols-3 sm:grid-cols-2 gap-3 lg:gap-4 ">
 
-      <h1 class="font-bold text-2xl md:col-span-3 sm:col-span-2 lg:text-4xl"> Desserts</h1>
+      <div class="flex justify-between md:col-span-3 sm:col-span-2 relative">
+        <h1 class="font-bold text-2xl lg:text-4xl"> Desserts</h1>
+        <div class="p-2 sm:hidden cursor-pointer" onclick="irAlCarrito()">
+          <img src="./assets/images/grocery-store.png" alt="" class="w-7">
+          <span class="bg-realRed  rounded-full text-[10px] px-1 text-center absolute top-0 right-0 text-white" id="cant-productos"></span>
+        </div>
+      </div>
 
       <div class="producto" id="1">
         <div class="big-img bg-waffle-mobile sm:bg-waffle-tablet md:bg-waffle-desktop"></div>
