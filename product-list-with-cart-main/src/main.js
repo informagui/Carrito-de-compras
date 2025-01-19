@@ -13,7 +13,6 @@ fetch('./data.json')
   .catch(error => console.error('Error al cargar los datos:', error));
 
 
-
 function addProduct(id){
     //Cambios generales
     cart[id-1] ++;
@@ -31,9 +30,9 @@ function addProduct(id){
     button.removeAttribute('onclick');
     button.classList.add('bg-realRed');
     button.innerHTML = `
-        <button class="decrement border border-white text-white rounded-full w-6 h-6 font-bold" onclick="decrement(${id})">-</button>
+        <button class="dec-inc" onclick="decrement(${id})">-</button>
         <span class="quantity text-white font-bold mx-6">1</span>
-        <button class="increment border border-white text-white rounded-full w-6 h-6 font-bold" onclick="increment(${id})">+</button>
+        <button class="dec-inc" onclick="increment(${id})">+</button>
     `;
 
     //Cambiando el carrito
@@ -178,7 +177,7 @@ function carritoVacio(){
  function addToTotal(){
     //Add the total to html
     let totalAndConfirmDiv = document.getElementById('total-and-confirm');
-    if (!totalAndConfirmDiv){
+    if (!totalAndConfirmDiv){ //Si no existe este div en el doc
         const carritoContainer = document.querySelector('#cart');
         const totalAndConfirmDiv = document.createElement('div');
         totalAndConfirmDiv.id = 'total-and-confirm';
@@ -192,7 +191,7 @@ function carritoVacio(){
                 <img src="./assets/images/icon-carbon-neutral.svg" alt="">
                 <p class="tetx-sm text-center ">this is a <span class="font-semibold">carbon-neutral</span> delivery </p>
             </div>
-            <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center" onclick="confirmOrder()">Confirm Order</button>
+            <button class="bg-realRed rounded-full p-2 tracking-wide text-white font-bold w-full text-center hover:bg-red-800" onclick="confirmOrder()">Confirm Order</button>
         `;
 
         
