@@ -22,8 +22,11 @@ function addProduct(id){
     //Obteniendo html
     cantProductosEl.innerText = cantProductos;
     const producto = document.getElementById(id);
+    const imgEl = producto.querySelector('div.big-img');
     const button =producto.querySelector('button.add-cart');
 
+    //Cambiando imagen
+    imgEl.classList.add('border-2', 'border-realRed');
     //Cambiando el boton de add to cart
     button.removeAttribute('onclick');
     button.classList.add('bg-realRed');
@@ -133,6 +136,7 @@ function removeFromCart(id){
         addToTotal();
     }
     resetButton(id);
+
     
     //Removing from cart html
     const cartContainer = document.querySelector('#cart');
@@ -151,6 +155,9 @@ function resetButton(productId) {
         Add to cart
     </div>
     `;
+
+    const imgEl = producto.querySelector('div.big-img');
+    imgEl.classList.remove('border-2', 'border-realRed');
 }
  
 function carritoVacio(){
